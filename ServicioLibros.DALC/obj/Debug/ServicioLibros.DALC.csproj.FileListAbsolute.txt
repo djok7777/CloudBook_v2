@@ -1,0 +1,9 @@
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\bin\Debug\ServicioLibros.DALC.dll.config
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\bin\Debug\ServicioLibros.DALC.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\bin\Debug\ServicioLibros.DALC.pdb
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\bin\Debug\EntityFramework.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\bin\Debug\EntityFramework.xml
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\obj\Debug\ServicioLibros.DALC.csproj.CoreCompileInputs.cache
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\obj\Debug\ServicioLibros.DALC.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\obj\Debug\ServicioLibros.DALC.pdb
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\ServicioLibros.DALC\obj\Debug\ServicioLibros.DALC.csprojResolveAssemblyReference.cache

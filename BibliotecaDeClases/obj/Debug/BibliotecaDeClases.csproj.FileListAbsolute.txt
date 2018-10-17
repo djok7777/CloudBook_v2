@@ -1,0 +1,11 @@
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook\BibliotecaDeClases\bin\Debug\BibliotecaDeClases.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook\BibliotecaDeClases\bin\Debug\BibliotecaDeClases.pdb
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.csprojResolveAssemblyReference.cache
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.pdb
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\bin\Debug\BibliotecaDeClases.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\bin\Debug\BibliotecaDeClases.pdb
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.csprojResolveAssemblyReference.cache
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.csproj.CoreCompileInputs.cache
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.dll
+C:\Users\MiguelAngel\Documents\Visual Studio 2015\Projects\CloudBook_v2\BibliotecaDeClases\obj\Debug\BibliotecaDeClases.pdb

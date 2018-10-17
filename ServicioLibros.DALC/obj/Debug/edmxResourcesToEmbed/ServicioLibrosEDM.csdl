@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CloudbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CuentaUsuario">
+    <Key>
+      <PropertyRef Name="Id_cuenta" />
+    </Key>
+    <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+    <Property Name="Nombre_cuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombres" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido_paterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido_materno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Administrador" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="LibroPublicado" Relationship="CloudbookModel.LibroPublicado_FK" FromRole="CuentaUsuario" ToRole="LibroPublicado" />
+    <NavigationProperty Name="Contacto" Relationship="CloudbookModel.Contacto_FK" FromRole="CuentaUsuario" ToRole="Contacto" />
+  </EntityType>
+  <EntityContainer Name="CloudbookEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CuentaUsuario" EntityType="Self.CuentaUsuario" />
+    <EntitySet Name="LibroComercial" EntityType="CloudbookModel.LibroComercial" />
+    <EntitySet Name="LibroPublicado" EntityType="CloudbookModel.LibroPublicado" />
+    <AssociationSet Name="LibroPublicado_FK" Association="CloudbookModel.LibroPublicado_FK">
+      <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+      <End Role="LibroPublicado" EntitySet="LibroPublicado" />
+    </AssociationSet>
+    <EntitySet Name="Contacto" EntityType="CloudbookModel.Contacto" />
+    <AssociationSet Name="Contacto_FK" Association="CloudbookModel.Contacto_FK">
+      <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+      <End Role="Contacto" EntitySet="Contacto" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LibroComercial">
+    <Key>
+      <PropertyRef Name="Id_libro" />
+    </Key>
+    <Property Name="Id_libro" Type="Int32" Nullable="false" />
+    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Autor" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Anno_publicacion" Type="Int32" Nullable="false" />
+    <Property Name="Categoria" Type="Int32" Nullable="false" />
+    <Property Name="Contenido" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Isbn" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Editorial" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_paginas" Type="Int32" Nullable="false" />
+    <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Audio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pdf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LibroPublicado">
+    <Key>
+      <PropertyRef Name="Id_libro" />
+    </Key>
+    <Property Name="Id_libro" Type="Int32" Nullable="false" />
+    <Property Name="Titulo" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Autor" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Anno_publicacion" Type="Int32" Nullable="false" />
+    <Property Name="Categoria" Type="Int32" Nullable="false" />
+    <Property Name="Contenido" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Cantidad_paginas" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad_Votos" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_Estado" Type="Int32" Nullable="false" />
+    <Property Name="Tipo_Periodicidad" Type="Int32" Nullable="false" />
+    <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Pdf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CuentaUsuario" Relationship="CloudbookModel.LibroPublicado_FK" FromRole="LibroPublicado" ToRole="CuentaUsuario" />
+  </EntityType>
+  <Association Name="LibroPublicado_FK">
+    <End Type="CloudbookModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="1" />
+    <End Type="CloudbookModel.LibroPublicado" Role="LibroPublicado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CuentaUsuario">
+        <PropertyRef Name="Id_cuenta" />
+      </Principal>
+      <Dependent Role="LibroPublicado">
+        <PropertyRef Name="Id_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Contacto">
+    <Key>
+      <PropertyRef Name="Id_contacto" />
+    </Key>
+    <Property Name="Id_contacto" Type="Int32" Nullable="false" />
+    <Property Name="Mensaje" Type="String" Nullable="false" MaxLength="140" FixedLength="false" Unicode="false" />
+    <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CuentaUsuario" Relationship="CloudbookModel.Contacto_FK" FromRole="Contacto" ToRole="CuentaUsuario" />
+  </EntityType>
+  <Association Name="Contacto_FK">
+    <End Type="CloudbookModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="1" />
+    <End Type="CloudbookModel.Contacto" Role="Contacto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CuentaUsuario">
+        <PropertyRef Name="Id_cuenta" />
+      </Principal>
+      <Dependent Role="Contacto">
+        <PropertyRef Name="Id_cuenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CloudbookModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="Id_contacto" />
+          </Key>
+          <Property Name="Id_contacto" Type="int" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar" MaxLength="140" Nullable="false" />
+          <Property Name="Id_cuenta" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CuentaUsuario">
+          <Key>
+            <PropertyRef Name="Id_cuenta" />
+          </Key>
+          <Property Name="Id_cuenta" Type="int" Nullable="false" />
+          <Property Name="Nombre_cuenta" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Clave" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="60" />
+          <Property Name="Apellido_paterno" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido_materno" Type="varchar" MaxLength="30" />
+          <Property Name="Administrador" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LibroComercial">
+          <Key>
+            <PropertyRef Name="Id_libro" />
+          </Key>
+          <Property Name="Id_libro" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Anno_publicacion" Type="int" Nullable="false" />
+          <Property Name="Categoria" Type="int" Nullable="false" />
+          <Property Name="Contenido" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Isbn" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Editorial" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Cantidad_paginas" Type="int" Nullable="false" />
+          <Property Name="Portada" Type="varchar" MaxLength="100" />
+          <Property Name="Audio" Type="varchar" MaxLength="100" />
+          <Property Name="Pdf" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LibroPublicado">
+          <Key>
+            <PropertyRef Name="Id_libro" />
+          </Key>
+          <Property Name="Id_libro" Type="int" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Autor" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="Anno_publicacion" Type="int" Nullable="false" />
+          <Property Name="Categoria" Type="int" Nullable="false" />
+          <Property Name="Contenido" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Cantidad_paginas" Type="int" Nullable="false" />
+          <Property Name="Cantidad_Votos" Type="int" Nullable="false" />
+          <Property Name="Tipo_Estado" Type="int" Nullable="false" />
+          <Property Name="Tipo_Periodicidad" Type="int" Nullable="false" />
+          <Property Name="Portada" Type="varchar" MaxLength="100" />
+          <Property Name="Pdf" Type="varchar" MaxLength="100" />
+          <Property Name="Id_cuenta" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Contacto_FK">
+          <End Role="CuentaUsuario" Type="Self.CuentaUsuario" Multiplicity="1" />
+          <End Role="Contacto" Type="Self.Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaUsuario">
+              <PropertyRef Name="Id_cuenta" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="Id_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LibroPublicado_FK">
+          <End Role="CuentaUsuario" Type="Self.CuentaUsuario" Multiplicity="1" />
+          <End Role="LibroPublicado" Type="Self.LibroPublicado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaUsuario">
+              <PropertyRef Name="Id_cuenta" />
+            </Principal>
+            <Dependent Role="LibroPublicado">
+              <PropertyRef Name="Id_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CloudbookModelStoreContainer">
+          <EntitySet Name="Contacto" EntityType="Self.Contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentaUsuario" EntityType="Self.CuentaUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LibroComercial" EntityType="Self.LibroComercial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LibroPublicado" EntityType="Self.LibroPublicado" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Contacto_FK" Association="Self.Contacto_FK">
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+            <End Role="Contacto" EntitySet="Contacto" />
+          </AssociationSet>
+          <AssociationSet Name="LibroPublicado_FK" Association="Self.LibroPublicado_FK">
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+            <End Role="LibroPublicado" EntitySet="LibroPublicado" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CloudbookModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CuentaUsuario">
+          <Key>
+            <PropertyRef Name="Id_cuenta" />
+          </Key>
+          <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_cuenta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clave" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido_paterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido_materno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Administrador" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="LibroPublicado" Relationship="CloudbookModel.LibroPublicado_FK" FromRole="CuentaUsuario" ToRole="LibroPublicado" />
+          <NavigationProperty Name="Contacto" Relationship="CloudbookModel.Contacto_FK" FromRole="CuentaUsuario" ToRole="Contacto" />
+        </EntityType>
+        <EntityContainer Name="CloudbookEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CuentaUsuario" EntityType="Self.CuentaUsuario" />
+          <EntitySet Name="LibroComercial" EntityType="CloudbookModel.LibroComercial" />
+          <EntitySet Name="LibroPublicado" EntityType="CloudbookModel.LibroPublicado" />
+          <AssociationSet Name="LibroPublicado_FK" Association="CloudbookModel.LibroPublicado_FK">
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+            <End Role="LibroPublicado" EntitySet="LibroPublicado" />
+          </AssociationSet>
+          <EntitySet Name="Contacto" EntityType="CloudbookModel.Contacto" />
+          <AssociationSet Name="Contacto_FK" Association="CloudbookModel.Contacto_FK">
+            <End Role="CuentaUsuario" EntitySet="CuentaUsuario" />
+            <End Role="Contacto" EntitySet="Contacto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="LibroComercial">
+          <Key>
+            <PropertyRef Name="Id_libro" />
+          </Key>
+          <Property Name="Id_libro" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Autor" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Anno_publicacion" Type="Int32" Nullable="false" />
+          <Property Name="Categoria" Type="Int32" Nullable="false" />
+          <Property Name="Contenido" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Isbn" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Editorial" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_paginas" Type="Int32" Nullable="false" />
+          <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Audio" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pdf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LibroPublicado">
+          <Key>
+            <PropertyRef Name="Id_libro" />
+          </Key>
+          <Property Name="Id_libro" Type="Int32" Nullable="false" />
+          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Autor" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Anno_publicacion" Type="Int32" Nullable="false" />
+          <Property Name="Categoria" Type="Int32" Nullable="false" />
+          <Property Name="Contenido" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Cantidad_paginas" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad_Votos" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Estado" Type="Int32" Nullable="false" />
+          <Property Name="Tipo_Periodicidad" Type="Int32" Nullable="false" />
+          <Property Name="Portada" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pdf" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CuentaUsuario" Relationship="CloudbookModel.LibroPublicado_FK" FromRole="LibroPublicado" ToRole="CuentaUsuario" />
+        </EntityType>
+        <Association Name="LibroPublicado_FK">
+          <End Type="CloudbookModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="1" />
+          <End Type="CloudbookModel.LibroPublicado" Role="LibroPublicado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaUsuario">
+              <PropertyRef Name="Id_cuenta" />
+            </Principal>
+            <Dependent Role="LibroPublicado">
+              <PropertyRef Name="Id_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Contacto">
+          <Key>
+            <PropertyRef Name="Id_contacto" />
+          </Key>
+          <Property Name="Id_contacto" Type="Int32" Nullable="false" />
+          <Property Name="Mensaje" Type="String" Nullable="false" MaxLength="140" FixedLength="false" Unicode="false" />
+          <Property Name="Id_cuenta" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CuentaUsuario" Relationship="CloudbookModel.Contacto_FK" FromRole="Contacto" ToRole="CuentaUsuario" />
+        </EntityType>
+        <Association Name="Contacto_FK">
+          <End Type="CloudbookModel.CuentaUsuario" Role="CuentaUsuario" Multiplicity="1" />
+          <End Type="CloudbookModel.Contacto" Role="Contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentaUsuario">
+              <PropertyRef Name="Id_cuenta" />
+            </Principal>
+            <Dependent Role="Contacto">
+              <PropertyRef Name="Id_cuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CloudbookModelStoreContainer" CdmEntityContainer="CloudbookEntities">
+          <EntitySetMapping Name="CuentaUsuario">
+            <EntityTypeMapping TypeName="CloudbookModel.CuentaUsuario">
+              <MappingFragment StoreEntitySet="CuentaUsuario">
+                <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+                <ScalarProperty Name="Nombre_cuenta" ColumnName="Nombre_cuenta" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellido_paterno" ColumnName="Apellido_paterno" />
+                <ScalarProperty Name="Apellido_materno" ColumnName="Apellido_materno" />
+                <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LibroComercial">
+            <EntityTypeMapping TypeName="CloudbookModel.LibroComercial">
+              <MappingFragment StoreEntitySet="LibroComercial">
+                <ScalarProperty Name="Pdf" ColumnName="Pdf" />
+                <ScalarProperty Name="Audio" ColumnName="Audio" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+                <ScalarProperty Name="Cantidad_paginas" ColumnName="Cantidad_paginas" />
+                <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+                <ScalarProperty Name="Isbn" ColumnName="Isbn" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Anno_publicacion" ColumnName="Anno_publicacion" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Id_libro" ColumnName="Id_libro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LibroPublicado">
+            <EntityTypeMapping TypeName="CloudbookModel.LibroPublicado">
+              <MappingFragment StoreEntitySet="LibroPublicado">
+                <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+                <ScalarProperty Name="Pdf" ColumnName="Pdf" />
+                <ScalarProperty Name="Portada" ColumnName="Portada" />
+                <ScalarProperty Name="Tipo_Periodicidad" ColumnName="Tipo_Periodicidad" />
+                <ScalarProperty Name="Tipo_Estado" ColumnName="Tipo_Estado" />
+                <ScalarProperty Name="Cantidad_Votos" ColumnName="Cantidad_Votos" />
+                <ScalarProperty Name="Cantidad_paginas" ColumnName="Cantidad_paginas" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Anno_publicacion" ColumnName="Anno_publicacion" />
+                <ScalarProperty Name="Autor" ColumnName="Autor" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Id_libro" ColumnName="Id_libro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacto">
+            <EntityTypeMapping TypeName="CloudbookModel.Contacto">
+              <MappingFragment StoreEntitySet="Contacto">
+                <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+                <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+                <ScalarProperty Name="Id_contacto" ColumnName="Id_contacto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

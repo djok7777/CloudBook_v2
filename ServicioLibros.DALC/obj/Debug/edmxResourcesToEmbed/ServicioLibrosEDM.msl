@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CloudbookModelStoreContainer" CdmEntityContainer="CloudbookEntities">
+    <EntitySetMapping Name="CuentaUsuario">
+      <EntityTypeMapping TypeName="CloudbookModel.CuentaUsuario">
+        <MappingFragment StoreEntitySet="CuentaUsuario">
+          <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+          <ScalarProperty Name="Nombre_cuenta" ColumnName="Nombre_cuenta" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellido_paterno" ColumnName="Apellido_paterno" />
+          <ScalarProperty Name="Apellido_materno" ColumnName="Apellido_materno" />
+          <ScalarProperty Name="Administrador" ColumnName="Administrador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibroComercial">
+      <EntityTypeMapping TypeName="CloudbookModel.LibroComercial">
+        <MappingFragment StoreEntitySet="LibroComercial">
+          <ScalarProperty Name="Pdf" ColumnName="Pdf" />
+          <ScalarProperty Name="Audio" ColumnName="Audio" />
+          <ScalarProperty Name="Portada" ColumnName="Portada" />
+          <ScalarProperty Name="Cantidad_paginas" ColumnName="Cantidad_paginas" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+          <ScalarProperty Name="Isbn" ColumnName="Isbn" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Anno_publicacion" ColumnName="Anno_publicacion" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Id_libro" ColumnName="Id_libro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibroPublicado">
+      <EntityTypeMapping TypeName="CloudbookModel.LibroPublicado">
+        <MappingFragment StoreEntitySet="LibroPublicado">
+          <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+          <ScalarProperty Name="Pdf" ColumnName="Pdf" />
+          <ScalarProperty Name="Portada" ColumnName="Portada" />
+          <ScalarProperty Name="Tipo_Periodicidad" ColumnName="Tipo_Periodicidad" />
+          <ScalarProperty Name="Tipo_Estado" ColumnName="Tipo_Estado" />
+          <ScalarProperty Name="Cantidad_Votos" ColumnName="Cantidad_Votos" />
+          <ScalarProperty Name="Cantidad_paginas" ColumnName="Cantidad_paginas" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Contenido" ColumnName="Contenido" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Anno_publicacion" ColumnName="Anno_publicacion" />
+          <ScalarProperty Name="Autor" ColumnName="Autor" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="Id_libro" ColumnName="Id_libro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacto">
+      <EntityTypeMapping TypeName="CloudbookModel.Contacto">
+        <MappingFragment StoreEntitySet="Contacto">
+          <ScalarProperty Name="Id_cuenta" ColumnName="Id_cuenta" />
+          <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+          <ScalarProperty Name="Id_contacto" ColumnName="Id_contacto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

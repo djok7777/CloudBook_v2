@@ -1,0 +1,145 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 239px;
+        }
+        .auto-style4 {
+            width: 257px;
+        }
+        .auto-style5 {
+            background-color: #CCCCCC;
+        }
+        .auto-style6 {
+            width: 780px;
+        }
+        .auto-style7 {
+            width: 219px;
+        }
+        .auto-style8 {
+            width: 220px;
+        }
+        .auto-style9 {
+            width: 350px;
+        }
+        .auto-style10 {
+            width: 198px;
+        }
+        .auto-style11 {
+            width: 1010px;
+        }
+        .auto-style12 {
+            width: 45px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:Panel ID="pnlHeader" runat="server" BackColor="#CCCCCC">
+            <table style="width: 100%;">
+                <tr>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style6">&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style4">&nbsp;</td>
+                    <td class="auto-style6"><h1>CLOUDBOOK</h1></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="auto-style12">&nbsp;</td>
+                    <td class="auto-style4">Menú de navegacion</td>
+                    <td class="auto-style6">
+                        <asp:SiteMapPath ID="SiteMapPath2" runat="server" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
+                            <CurrentNodeStyle ForeColor="#333333" />
+                            <NodeStyle Font-Bold="True" ForeColor="#7C6F57" />
+                            <PathSeparatorStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                            <RootNodeStyle Font-Bold="True" ForeColor="#5D7B9D" />
+                        </asp:SiteMapPath>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+            <br />
+        </asp:Panel>
+    </div>
+
+    <div>
+        <table style="width: 100%;">
+            <tr>
+                <td class="auto-style12">
+                    &nbsp;</td>
+                <td class="auto-style1">
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+                    <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1">
+                    </asp:Menu>
+
+                </td>
+                <td class="auto-style11">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style12">&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style11">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style12">&nbsp;</td>
+                <td class="auto-style1">&nbsp;</td>
+                <td class="auto-style11">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="auto-style5">
+        <table style="width: 100%;">
+            <tr>
+                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style10">&nbsp;</td>
+                <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style8">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style10">&nbsp;</td>
+                <td class="auto-style9"><span style="color: rgb(255, 255, 255); font-family: Lato; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(51, 51, 51); text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">© Copyright 2017 CloudBook- All rights reserved.</span></td>
+                <td class="auto-style8">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style7">&nbsp;</td>
+                <td class="auto-style10">&nbsp;</td>
+                <td class="auto-style9">&nbsp;</td>
+                <td class="auto-style8">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:LinkButton ID="linkFacebook" runat="server" OnClick="linkFacebook_Click">Facebook</asp:LinkButton>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:LinkButton ID="linkTwitter" runat="server" OnClick="linkTwitter_Click">Twitter</asp:LinkButton>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    </div>
+    </form>
+
+    </body>
+</html>
